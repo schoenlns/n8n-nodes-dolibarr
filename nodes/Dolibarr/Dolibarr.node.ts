@@ -4,8 +4,10 @@ import { productDescription } from './resources/product';
 import { invoiceDescription } from './resources/invoice';
 import { invoiceLineDescription } from './resources/invoiceLine';
 import { contactDescription } from './resources/contact';
+import { memberDescription } from './resources/member';
 import { getThirdParties } from './listSearch/getThirdParties';
 import { getProducts } from './listSearch/getProducts';
+import { getMemberTypes } from './listSearch/getMemberTypes';
 
 export class Dolibarr implements INodeType {
 	description: INodeTypeDescription = {
@@ -45,6 +47,7 @@ export class Dolibarr implements INodeType {
 					{ name: 'Contact', value: 'contact' },
 					{ name: 'Invoice', value: 'invoice' },
 					{ name: 'Invoice Line', value: 'invoiceLine' },
+					{ name: 'Member', value: 'member' },
 					{ name: 'Product', value: 'product' },
 					{ name: 'Third Party', value: 'thirdParty' },
 				],
@@ -55,6 +58,7 @@ export class Dolibarr implements INodeType {
 			...invoiceDescription,
 			...invoiceLineDescription,
 			...contactDescription,
+			...memberDescription,
 		],
 	};
 
@@ -62,6 +66,7 @@ export class Dolibarr implements INodeType {
 		listSearch: {
 			getThirdParties,
 			getProducts,
+			getMemberTypes,
 		},
 	};
 }

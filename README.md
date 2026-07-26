@@ -37,6 +37,7 @@ pagination (**Return All** / **Limit**) and optional sort/`sqlfilters` options.
 | **Product**      | Get Many, Get, Create, Update, Delete                 |
 | **Invoice**      | Get Many, Get, Create, Delete, Validate               |
 | **Invoice Line** | Add, Get Many, Update, Delete                         |
+| **Member**       | Get Many, Get, Create, Update, Delete                 |
 
 Third parties and products can be selected from a searchable dropdown (backed by the Dolibarr
 `sqlfilters` search), or by entering their numeric ID directly.
