@@ -5,9 +5,11 @@ import { invoiceDescription } from './resources/invoice';
 import { invoiceLineDescription } from './resources/invoiceLine';
 import { contactDescription } from './resources/contact';
 import { memberDescription } from './resources/member';
+import { subscriptionDescription } from './resources/subscription';
 import { getThirdParties } from './listSearch/getThirdParties';
 import { getProducts } from './listSearch/getProducts';
 import { getMemberTypes } from './listSearch/getMemberTypes';
+import { getMembers } from './listSearch/getMembers';
 
 export class Dolibarr implements INodeType {
 	description: INodeTypeDescription = {
@@ -49,6 +51,7 @@ export class Dolibarr implements INodeType {
 					{ name: 'Invoice Line', value: 'invoiceLine' },
 					{ name: 'Member', value: 'member' },
 					{ name: 'Product', value: 'product' },
+					{ name: 'Subscription', value: 'subscription' },
 					{ name: 'Third Party', value: 'thirdParty' },
 				],
 				default: 'thirdParty',
@@ -59,6 +62,7 @@ export class Dolibarr implements INodeType {
 			...invoiceLineDescription,
 			...contactDescription,
 			...memberDescription,
+			...subscriptionDescription,
 		],
 	};
 
@@ -67,6 +71,7 @@ export class Dolibarr implements INodeType {
 			getThirdParties,
 			getProducts,
 			getMemberTypes,
+			getMembers,
 		},
 	};
 }

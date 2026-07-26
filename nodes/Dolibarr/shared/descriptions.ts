@@ -81,6 +81,44 @@ export const productSelect: INodeProperties = {
 };
 
 /**
+ * Sélecteur d'Adhérent (Member) sous forme de resourceLocator.
+ */
+export const memberSelect: INodeProperties = {
+	displayName: 'Member',
+	name: 'memberId',
+	type: 'resourceLocator',
+	default: { mode: 'list', value: '' },
+	required: true,
+	modes: [
+		{
+			displayName: 'From List',
+			name: 'list',
+			type: 'list',
+			placeholder: 'Select a member...',
+			typeOptions: {
+				searchListMethod: 'getMembers',
+				searchable: true,
+			},
+		},
+		{
+			displayName: 'By ID',
+			name: 'id',
+			type: 'string',
+			placeholder: 'e.g. 42',
+			validation: [
+				{
+					type: 'regex',
+					properties: {
+						regex: '[0-9]+',
+						errorMessage: 'The ID must be numeric',
+					},
+				},
+			],
+		},
+	],
+};
+
+/**
  * Sélecteur de Type d'adhérent (Member Type) sous forme de resourceLocator.
  */
 export const memberTypeSelect: INodeProperties = {
