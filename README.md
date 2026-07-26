@@ -1,4 +1,4 @@
-# n8n-nodes-dolibarr
+# n8n-nodes-dolibarr-rest
 
 This is an n8n community node. It lets you interact with the **[Dolibarr](https://www.dolibarr.org/) ERP/CRM** REST API from your n8n workflows.
 
@@ -10,7 +10,7 @@ Dolibarr is an open-source ERP/CRM to manage third parties (customers, prospects
 
 ## Installation
 
-Follow the [community nodes installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n documentation, and install the package `n8n-nodes-dolibarr`.
+Follow the [community nodes installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n documentation, and install the package `n8n-nodes-dolibarr-rest`.
 
 ## Credentials
 

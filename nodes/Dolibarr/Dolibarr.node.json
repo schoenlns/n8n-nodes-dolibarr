@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-dolibarr.dolibarr",
+	"node": "n8n-nodes-dolibarr-rest.dolibarr",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Sales", "Finance & Accounting"],
