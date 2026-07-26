@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-dolibarr.dolibarr",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Sales", "Finance & Accounting"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/schoenlns/n8n-nodes-dolibarr?tab=readme-ov-file#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://wiki.dolibarr.org/index.php?title=Module_Web_Services_API_REST_(developer)"
+			}
+		]
+	}
+}
