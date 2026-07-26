@@ -78,7 +78,7 @@ export const invoiceCreateDescription: INodeProperties[] = [
 	},
 	{
 		displayName:
-			'A draft invoice is created without lines. Add lines afterwards via the Dolibarr API lines endpoint, then use the Validate operation.',
+			'A draft invoice is created without lines. Use the Invoice Line resource to add lines, then use the Validate operation.',
 		name: 'invoiceCreateNotice',
 		type: 'notice',
 		default: '',

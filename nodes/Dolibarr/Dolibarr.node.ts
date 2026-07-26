@@ -2,6 +2,7 @@ import { NodeConnectionTypes, type INodeType, type INodeTypeDescription } from '
 import { thirdPartyDescription } from './resources/thirdParty';
 import { productDescription } from './resources/product';
 import { invoiceDescription } from './resources/invoice';
+import { invoiceLineDescription } from './resources/invoiceLine';
 import { contactDescription } from './resources/contact';
 import { getThirdParties } from './listSearch/getThirdParties';
 import { getProducts } from './listSearch/getProducts';
@@ -43,6 +44,7 @@ export class Dolibarr implements INodeType {
 				options: [
 					{ name: 'Contact', value: 'contact' },
 					{ name: 'Invoice', value: 'invoice' },
+					{ name: 'Invoice Line', value: 'invoiceLine' },
 					{ name: 'Product', value: 'product' },
 					{ name: 'Third Party', value: 'thirdParty' },
 				],
@@ -51,6 +53,7 @@ export class Dolibarr implements INodeType {
 			...thirdPartyDescription,
 			...productDescription,
 			...invoiceDescription,
+			...invoiceLineDescription,
 			...contactDescription,
 		],
 	};

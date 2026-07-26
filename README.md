@@ -33,16 +33,16 @@ pagination (**Return All** / **Limit**) and optional sort/`sqlfilters` options.
 | Resource        | Operations                                            |
 | --------------- | ----------------------------------------------------- |
 | **Third Party** | Get Many, Get, Create, Update, Delete                 |
-| **Contact**     | Get Many, Get, Create, Update, Delete                 |
-| **Product**     | Get Many, Get, Create, Update, Delete                 |
-| **Invoice**     | Get Many, Get, Create, Delete, Validate               |
+| **Contact**      | Get Many, Get, Create, Update, Delete                 |
+| **Product**      | Get Many, Get, Create, Update, Delete                 |
+| **Invoice**      | Get Many, Get, Create, Delete, Validate               |
+| **Invoice Line** | Add, Get Many, Update, Delete                         |
 
 Third parties and products can be selected from a searchable dropdown (backed by the Dolibarr
 `sqlfilters` search), or by entering their numeric ID directly.
 
-> **Note on invoices:** the *Create* operation creates a **draft** invoice (header only). Add lines
-> afterwards via the Dolibarr `POST /invoices/{id}/lines` endpoint (e.g. with an HTTP Request node),
-> then use the *Validate* operation to finalize it.
+> **Note on invoices:** the *Create* operation creates a **draft** invoice (header only). Use the
+> **Invoice Line** resource to add lines to it, then use the invoice *Validate* operation to finalize it.
 
 ### `sqlfilters` syntax
 
