@@ -1,0 +1,93 @@
+{
+  "name": "Dolibarr Suivi CRM — test (Follow-Up)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a0000000-0000-4000-8000-000000000000",
+      "name": "Exécuter (manuel)",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [-200, 0]
+    },
+    {
+      "parameters": {
+        "resource": "suivi",
+        "operation": "create",
+        "memberId": { "__rl": true, "mode": "id", "value": "1" },
+        "suiviTypeId": { "__rl": true, "mode": "id", "value": "1" },
+        "sujet": "Test depuis n8n (workflow de démo)",
+        "additionalFields": {
+          "statut": 1,
+          "description": "Créé puis supprimé par le workflow de test"
+        }
+      },
+      "id": "b1111111-1111-4111-8111-111111111111",
+      "name": "Follow-Up: Create (adhérent 1)",
+      "type": "n8n-nodes-dolibarr-rest.dolibarr",
+      "typeVersion": 1,
+      "position": [40, 0],
+      "credentials": {
+        "dolibarrApi": {
+          "id": "AYpBTMlqj50wuX94",
+          "name": "Dolibarr account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "suivi",
+        "operation": "getAll",
+        "returnAll": false,
+        "limit": 10,
+        "filters": { "adherent": 1 }
+      },
+      "id": "c2222222-2222-4222-8222-222222222222",
+      "name": "Follow-Up: Get Many (adhérent 1)",
+      "type": "n8n-nodes-dolibarr-rest.dolibarr",
+      "typeVersion": 1,
+      "position": [280, -120],
+      "credentials": {
+        "dolibarrApi": {
+          "id": "AYpBTMlqj50wuX94",
+          "name": "Dolibarr account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "suivi",
+        "operation": "delete",
+        "suiviId": "={{ $json.id }}"
+      },
+      "id": "d3333333-3333-4333-8333-333333333333",
+      "name": "Follow-Up: Delete (nettoyage)",
+      "type": "n8n-nodes-dolibarr-rest.dolibarr",
+      "typeVersion": 1,
+      "position": [280, 120],
+      "credentials": {
+        "dolibarrApi": {
+          "id": "AYpBTMlqj50wuX94",
+          "name": "Dolibarr account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Exécuter (manuel)": {
+      "main": [[{ "node": "Follow-Up: Create (adhérent 1)", "type": "main", "index": 0 }]]
+    },
+    "Follow-Up: Create (adhérent 1)": {
+      "main": [[
+        { "node": "Follow-Up: Get Many (adhérent 1)", "type": "main", "index": 0 },
+        { "node": "Follow-Up: Delete (nettoyage)", "type": "main", "index": 0 }
+      ]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "templateId": "dolibarr-suivi-crm-test"
+  }
+}
