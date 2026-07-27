@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-dolibarr-rest",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "n8n community node to interact with the Dolibarr ERP/CRM REST API",
 	"license": "MIT",
 	"homepage": "https://github.com/schoenlns/n8n-nodes-dolibarr",
