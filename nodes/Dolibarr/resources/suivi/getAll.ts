@@ -14,6 +14,15 @@ export const suiviGetManyDescription: INodeProperties[] = [
 		displayOptions: { show: showForGetAll },
 		options: [
 			{
+				displayName: 'Assigned User ID',
+				name: 'assigne',
+				type: 'number',
+				default: 0,
+				description:
+					'Filter on the assigned Dolibarr user (rowid). Use 0 to list only unassigned follow-ups.',
+				routing: { request: { qs: { assigne: '={{$value}}' } } },
+			},
+			{
 				displayName: 'Member ID',
 				name: 'adherent',
 				type: 'number',
@@ -22,12 +31,25 @@ export const suiviGetManyDescription: INodeProperties[] = [
 				routing: { request: { qs: { adherent: '={{$value}}' } } },
 			},
 			{
+				displayName: 'Priority',
+				name: 'priorite',
+				type: 'options',
+				options: [
+					{ name: 'Low', value: 0 },
+					{ name: 'Normal', value: 1 },
+					{ name: 'High', value: 2 },
+				],
+				default: 1,
+				routing: { request: { qs: { priorite: '={{$value}}' } } },
+			},
+			{
 				displayName: 'Sort Field',
 				name: 'sortfield',
 				type: 'options',
 				options: [
 					{ name: 'Creation Date', value: 's.date_creation' },
 					{ name: 'Follow-Up Date', value: 's.date_suivi' },
+					{ name: 'Priority', value: 's.priorite' },
 					{ name: 'Status', value: 's.statut' },
 					{ name: 'Subject', value: 's.sujet' },
 				],

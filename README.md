@@ -39,9 +39,17 @@ pagination (**Return All** / **Limit**) and optional sort/`sqlfilters` options.
 | **Invoice Line** | Add, Get Many, Update, Delete                         |
 | **Member**       | Get Many, Get, Create, Update, Delete                 |
 | **Subscription** | Add, Get Many, Get, Update, Delete                    |
+| **Follow-Up (CRM)** | Get Many, Get, Create, Update, Delete              |
 
 Third parties and products can be selected from a searchable dropdown (backed by the Dolibarr
 `sqlfilters` search), or by entering their numeric ID directly.
+
+> **Note on follow-ups:** the **Follow-Up (CRM)** resource requires the
+> [`relationadherent`](https://github.com/schoenlns) module on the Dolibarr side (routes under
+> `/relationadherent`). A follow-up records an interaction with a member: type, date, subject,
+> description, status, reminder date, **priority**, **assigned Dolibarr user** and **outcome**
+> (a dictionary loaded from the module). Types and outcomes are offered as dropdowns; an unknown
+> assignee or outcome is rejected by the API rather than silently stored.
 
 > **Note on invoices:** the *Create* operation creates a **draft** invoice (header only). Use the
 > **Invoice Line** resource to add lines to it, then use the invoice *Validate* operation to finalize it.

@@ -15,6 +15,15 @@ export const suiviUpdateDescription: INodeProperties[] = [
 		displayOptions: { show: showOnlyForUpdate },
 		options: [
 			{
+				displayName: 'Assigned User ID',
+				name: 'fk_user_assign',
+				type: 'number',
+				default: 0,
+				description:
+					'Dolibarr user (rowid) in charge of this follow-up. Use 0 to clear the assignment.',
+				routing: { send: { type: 'body', property: 'fk_user_assign' } },
+			},
+			{
 				displayName: 'Author',
 				name: 'auteur',
 				type: 'string',
@@ -43,6 +52,28 @@ export const suiviUpdateDescription: INodeProperties[] = [
 				default: 0,
 				description: 'Reassign to another member (Dolibarr rowid)',
 				routing: { send: { type: 'body', property: 'fk_adherent' } },
+			},
+			{
+				displayName: 'Outcome Name or ID',
+				name: 'fk_resultat',
+				type: 'options',
+				typeOptions: { loadOptionsMethod: 'getSuiviResultats' },
+				default: 0,
+				description:
+					'Outcome of the interaction. Use 0 to clear it. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+				routing: { send: { type: 'body', property: 'fk_resultat' } },
+			},
+			{
+				displayName: 'Priority',
+				name: 'priorite',
+				type: 'options',
+				options: [
+					{ name: 'Low', value: 0 },
+					{ name: 'Normal', value: 1 },
+					{ name: 'High', value: 2 },
+				],
+				default: 1,
+				routing: { send: { type: 'body', property: 'priorite' } },
 			},
 			{
 				displayName: 'Reminder Date',

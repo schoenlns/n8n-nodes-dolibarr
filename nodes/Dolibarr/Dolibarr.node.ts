@@ -12,6 +12,7 @@ import { getProducts } from './listSearch/getProducts';
 import { getMemberTypes } from './listSearch/getMemberTypes';
 import { getMembers } from './listSearch/getMembers';
 import { getSuiviTypes } from './listSearch/getSuiviTypes';
+import { getSuiviResultats } from './loadOptions/getSuiviResultats';
 
 export class Dolibarr implements INodeType {
 	description: INodeTypeDescription = {
@@ -77,6 +78,9 @@ export class Dolibarr implements INodeType {
 			getMemberTypes,
 			getMembers,
 			getSuiviTypes,
+		},
+		loadOptions: {
+			getSuiviResultats,
 		},
 	};
 }

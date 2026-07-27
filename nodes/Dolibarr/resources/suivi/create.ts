@@ -37,6 +37,15 @@ export const suiviCreateDescription: INodeProperties[] = [
 		displayOptions: { show: showOnlyForCreate },
 		options: [
 			{
+				displayName: 'Assigned User ID',
+				name: 'fk_user_assign',
+				type: 'number',
+				default: 0,
+				description:
+					'Dolibarr user (rowid) in charge of this follow-up. Rejected by the API if the user does not exist.',
+				routing: { send: { type: 'body', property: 'fk_user_assign' } },
+			},
+			{
 				displayName: 'Author',
 				name: 'auteur',
 				type: 'string',
@@ -59,6 +68,28 @@ export const suiviCreateDescription: INodeProperties[] = [
 				default: '',
 				description: 'Date of the interaction. Defaults to now if left empty.',
 				routing: { send: { type: 'body', property: 'date_suivi' } },
+			},
+			{
+				displayName: 'Outcome Name or ID',
+				name: 'fk_resultat',
+				type: 'options',
+				typeOptions: { loadOptionsMethod: 'getSuiviResultats' },
+				default: 0,
+				description:
+					'Outcome of the interaction (reached, no answer, to call back, …). Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>.',
+				routing: { send: { type: 'body', property: 'fk_resultat' } },
+			},
+			{
+				displayName: 'Priority',
+				name: 'priorite',
+				type: 'options',
+				options: [
+					{ name: 'Low', value: 0 },
+					{ name: 'Normal', value: 1 },
+					{ name: 'High', value: 2 },
+				],
+				default: 1,
+				routing: { send: { type: 'body', property: 'priorite' } },
 			},
 			{
 				displayName: 'Reminder Date',
