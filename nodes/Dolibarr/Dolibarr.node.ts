@@ -6,10 +6,12 @@ import { invoiceLineDescription } from './resources/invoiceLine';
 import { contactDescription } from './resources/contact';
 import { memberDescription } from './resources/member';
 import { subscriptionDescription } from './resources/subscription';
+import { suiviDescription } from './resources/suivi';
 import { getThirdParties } from './listSearch/getThirdParties';
 import { getProducts } from './listSearch/getProducts';
 import { getMemberTypes } from './listSearch/getMemberTypes';
 import { getMembers } from './listSearch/getMembers';
+import { getSuiviTypes } from './listSearch/getSuiviTypes';
 
 export class Dolibarr implements INodeType {
 	description: INodeTypeDescription = {
@@ -47,6 +49,7 @@ export class Dolibarr implements INodeType {
 				noDataExpression: true,
 				options: [
 					{ name: 'Contact', value: 'contact' },
+					{ name: 'Follow-Up (CRM)', value: 'suivi' },
 					{ name: 'Invoice', value: 'invoice' },
 					{ name: 'Invoice Line', value: 'invoiceLine' },
 					{ name: 'Member', value: 'member' },
@@ -63,6 +66,7 @@ export class Dolibarr implements INodeType {
 			...contactDescription,
 			...memberDescription,
 			...subscriptionDescription,
+			...suiviDescription,
 		],
 	};
 
@@ -72,6 +76,7 @@ export class Dolibarr implements INodeType {
 			getProducts,
 			getMemberTypes,
 			getMembers,
+			getSuiviTypes,
 		},
 	};
 }

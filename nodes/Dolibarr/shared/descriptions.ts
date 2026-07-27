@@ -158,6 +158,46 @@ export const memberTypeSelect: INodeProperties = {
 };
 
 /**
+ * Sélecteur de Type de suivi CRM (module relationadherent) sous forme de
+ * resourceLocator : liste recherchable (méthode `getSuiviTypes`) ou saisie de l'ID.
+ */
+export const suiviTypeSelect: INodeProperties = {
+	displayName: 'Follow-Up Type',
+	name: 'suiviTypeId',
+	type: 'resourceLocator',
+	default: { mode: 'list', value: '' },
+	required: true,
+	description: 'Le type d\'interaction (appel, email, RDV, …)',
+	modes: [
+		{
+			displayName: 'From List',
+			name: 'list',
+			type: 'list',
+			placeholder: 'Select a type...',
+			typeOptions: {
+				searchListMethod: 'getSuiviTypes',
+				searchable: true,
+			},
+		},
+		{
+			displayName: 'By ID',
+			name: 'id',
+			type: 'string',
+			placeholder: 'e.g. 1',
+			validation: [
+				{
+					type: 'regex',
+					properties: {
+						regex: '[0-9]+',
+						errorMessage: 'The ID must be numeric',
+					},
+				},
+			],
+		},
+	],
+};
+
+/**
  * Champ ID générique (saisie libre) pour les ressources sans recherche dédiée.
  */
 export function idField(displayName: string, name: string): INodeProperties {
