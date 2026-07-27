@@ -68,9 +68,9 @@ export const suiviUpdateDescription: INodeProperties[] = [
 				name: 'priorite',
 				type: 'options',
 				options: [
-					{ name: 'Low', value: 0 },
-					{ name: 'Normal', value: 1 },
-					{ name: 'High', value: 2 },
+					{ name: 'Low (1 Star)', value: 1 },
+					{ name: 'Normal (2 Stars)', value: 2 },
+					{ name: 'High (3 Stars)', value: 3 },
 				],
 				default: 1,
 				routing: { send: { type: 'body', property: 'priorite' } },

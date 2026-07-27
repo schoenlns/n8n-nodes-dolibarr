@@ -47,7 +47,8 @@ Third parties and products can be selected from a searchable dropdown (backed by
 > **Note on follow-ups:** the **Follow-Up (CRM)** resource requires the
 > [`relationadherent`](https://github.com/schoenlns) module on the Dolibarr side (routes under
 > `/relationadherent`). A follow-up records an interaction with a member: type, date, subject,
-> description, status, reminder date, **priority**, **assigned Dolibarr user** and **outcome**
+> description, status, reminder date, **priority** (1 to 3, shown as that many stars in
+> Dolibarr, 1 by default), **assigned Dolibarr user** and **outcome**
 > (a dictionary loaded from the module). Types and outcomes are offered as dropdowns; an unknown
 > assignee or outcome is rejected by the API rather than silently stored.
 
